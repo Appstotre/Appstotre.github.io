@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 import { Download, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 
 const footerLinks = {
@@ -35,7 +35,7 @@ export function Footer() {
       <div className="container py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
                 <Download className="h-6 w-6 text-primary-foreground" />
               </div>
@@ -64,7 +64,7 @@ export function Footer() {
               {footerLinks.product.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.path}
+                    href={link.path}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.name}
@@ -80,7 +80,7 @@ export function Footer() {
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.path}
+                    href={link.path}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.name}
@@ -96,7 +96,7 @@ export function Footer() {
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.path}
+                    href={link.path}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.name}

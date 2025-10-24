@@ -1,7 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 
 const gameCategories = [
   { name: "Action", icon: "⚔️", count: "2,500+" },
@@ -27,7 +27,7 @@ const appCategories = [
 
 function CategoryCard({ name, icon, count }: { name: string; icon: string; count: string }) {
   return (
-    <Link to="/games">
+    <Link href="/games">
       <Card className="group overflow-hidden border-0 bg-gradient-to-b from-card to-secondary/20 shadow-[var(--shadow-card)] transition-all hover:shadow-[var(--shadow-hover)] hover:-translate-y-1">
         <CardContent className="p-6">
           <div className="flex items-center gap-4">

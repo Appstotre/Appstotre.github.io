@@ -1,5 +1,5 @@
 import { ArrowRight, Zap, Shield, Smartphone } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { AppCard } from "@/components/AppCard";
 import { Header } from "@/components/layout/Header";
@@ -85,7 +85,7 @@ export default function Home() {
           <div className="container">
             <div className="mb-8 flex items-center justify-between">
               <h2 className="text-3xl font-bold">Featured Apps</h2>
-              <Link to="/apps">
+              <Link href="/apps">
                 <Button variant="ghost">
                   View All <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -104,7 +104,7 @@ export default function Home() {
           <div className="container">
             <div className="mb-8 flex items-center justify-between">
               <h2 className="text-3xl font-bold">Top Download Games</h2>
-              <Link to="/games">
+              <Link href="/games">
                 <Button variant="ghost">
                   View All <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
