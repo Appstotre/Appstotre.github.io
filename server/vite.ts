@@ -30,7 +30,7 @@ export async function setupVite(app: Express) {
     const url = req.originalUrl;
 
     try {
-      const clientTemplate = path.resolve(__dirname, "..", "client", "index.html");
+      const clientTemplate = path.resolve(__dirname, "..", "index.html");
       let template = fs.readFileSync(clientTemplate, "utf-8");
       template = await vite.transformIndexHtml(url, template);
 
@@ -43,7 +43,7 @@ export async function setupVite(app: Express) {
 }
 
 export function serveStatic(app: Express) {
-  const distPath = path.resolve(__dirname, "..", "dist", "public");
+  const distPath = path.resolve(__dirname, "..", "dist");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(
