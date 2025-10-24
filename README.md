@@ -1,73 +1,112 @@
-# Welcome to your Lovable project
+# AppStore
 
-## Project info
+Super fast and safe downloading platform. One-click to install thousands of verified apps and games on your device!
 
-**URL**: https://lovable.dev/projects/0a211db7-9278-4147-8adb-877d90dc018b
+## 🚀 Deployment to GitHub Pages
 
-## How can I edit this code?
+This project is configured to automatically deploy to GitHub Pages when you push to the main branch.
 
-There are several ways of editing your application.
+### Setup Instructions
 
-**Use Lovable**
+1. **Enable GitHub Pages in your repository**:
+   - Go to Settings > Pages
+   - Under "Build and deployment", select "GitHub Actions" as the source
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0a211db7-9278-4147-8adb-877d90dc018b) and start prompting.
+2. **Push your code to GitHub**:
+   ```bash
+   git add .
+   git commit -m "Setup GitHub Pages deployment"
+   git push origin main
+   ```
 
-Changes made via Lovable will be committed automatically to this repo.
+3. **GitHub Actions will automatically**:
+   - Build your project
+   - Deploy to GitHub Pages
+   - Your site will be available at: `https://appstotre.github.io`
 
-**Use your preferred IDE**
+## 💻 Local Development
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Install dependencies
+npm install
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Run development server (Full-stack mode)
 npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-**Edit a file directly in GitHub**
+## 📁 Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # GitHub Actions workflow for deployment
+├── client/                      # Frontend application
+│   ├── public/                  # Static assets
+│   │   └── 404.html            # SPA redirect for GitHub Pages
+│   ├── src/
+│   │   ├── components/         # Reusable components
+│   │   │   ├── layout/         # Header, Footer
+│   │   │   └── ui/             # shadcn/ui components
+│   │   ├── pages/              # Page components (Home, Games, Apps, etc.)
+│   │   ├── lib/                # Utilities & queryClient
+│   │   └── App.tsx             # Main app with routing
+│   └── index.html              # Entry HTML file
+├── server/                      # Backend (for local dev only)
+│   ├── index.ts                # Express server
+│   ├── vite.ts                 # Vite dev server integration
+│   ├── routes.ts               # API routes
+│   └── storage.ts              # In-memory storage
+├── shared/                      # Shared types/schema
+└── vite.config.ts              # Vite configuration
+```
 
-**Use GitHub Codespaces**
+## 🛠️ Technologies
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool & dev server
+- **Wouter** - Lightweight client-side routing
+- **Tailwind CSS** - Utility-first styling
+- **shadcn/ui** - Beautiful UI components
+- **Express** - Backend server (dev only)
+- **TanStack Query** - Data fetching & caching
+- **GitHub Pages** - Static hosting
 
-## What technologies are used for this project?
+## 🧭 Available Pages
 
-This project is built with:
+All navigation routes are functional:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **/** - Home page with featured apps
+- **/games** - Browse top games
+- **/apps** - Browse top apps
+- **/categories** - Browse by category
+- **/top-charts** - Top charts page
+- **/about** - About page
+- **/contact** - Contact page
+- **/blog** - Blog page
+- **/careers** - Careers page
+- **/help-center** - Help center
+- **/safety-center** - Safety center
+- **/community-guidelines** - Community guidelines
+- **/terms-of-service** - Terms of service
 
-## How can I deploy this project?
+## 📝 Notes
 
-Simply open [Lovable](https://lovable.dev/projects/0a211db7-9278-4147-8adb-877d90dc018b) and click on Share -> Publish.
+- The project uses **wouter** for client-side routing (lighter than react-router)
+- GitHub Pages SPA redirect is configured for proper routing on static hosting
+- Development server runs on port 5000
+- The backend (Express) is only used for local development
+- Production build creates static files in `dist/public/`
 
-## Can I connect a custom domain to my Lovable project?
+## 🔧 Build Configuration
 
-Yes, you can!
+The project uses a full-stack architecture for development but builds to static files for GitHub Pages:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- **Development**: Express server with Vite middleware
+- **Production**: Static HTML/CSS/JS files served by GitHub Pages
